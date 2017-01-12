@@ -1,5 +1,5 @@
 # at terminal window, run:
-# python track_uscis.py <rd_process_center argument> <rd_date_start argument> <rd_date_end argument> <rd_form argument>
+# python track_uscis_rd.py <rd_process_center argument> <rd_date_start argument> <rd_date_end argument> <rd_form argument>
 
 import re 
 import mechanize
