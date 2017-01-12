@@ -16,8 +16,8 @@ receipt_url = 'http://www.mycasetracker.org/index.php?dest=receipt'
 receipt_num_start = 'SRC1790011000'
 processing_center = receipt_num_start[:3]
 
-number_of_receipts = '100'
-number_of_intervals = 3 
+number_of_receipts = '300'
+number_of_intervals = 6
 received_key = 'Case Was Approved'
 approved_key = 'Case Was Received'
 target_form_type = 'I131'
