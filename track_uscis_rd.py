@@ -18,8 +18,8 @@ rd_process_center = "SRC"
 rd_form = "I131"
 rd_date_start = "2016-10-03"
 rd_date_end = "2016-10-08"
-received_key = 'Case Was Approved'
-approved_key = 'Case Was Received'
+received_key = 'Case Was Received'
+approved_key = 'Case Was Approved'
 log_file_dir = '/logs'
 back_look = 1 
 
@@ -141,19 +141,20 @@ print colored('#################################### USCIS Tracker RD ###########
 print colored('# Status of current inquiry:'+strftime("_inqury_%Y_%m_%d-%H_%M_%S", gmtime()),\
 	'blue',attrs=['bold'])
 for rd_time, new_info_entry in enumerate(new_info):
-	
-	print colored('# RD: '+rd_dates[rd_time]+' Approved: '+new_info_entry[0][0]+'('+new_info_entry[0][1]+'%'+' in date range: '+ \
-		new_info_entry[0][2]+'--'+new_info_entry[0][3]+')' \
-		+' Received: '+new_info_entry[1][0]+'('+new_info_entry[1][1]+'%'+' in date range: '+ \
-		new_info_entry[1][2]+'--'+new_info_entry[1][3]+')', 'white',attrs=['bold','underline']) 
 	print ''
+	print colored('# RD: '+rd_dates[rd_time]+' Approved: '+new_info_entry[1][0]+'('+new_info_entry[1][1]+'%'+' in date range: '+ \
+		new_info_entry[1][2]+'--'+new_info_entry[1][3]+')', 'white', attrs=['bold','underline']) 
+	print colored('# ------------------ Received: '+new_info_entry[0][0]+'('+new_info_entry[0][1]+'%'+' in date range: '+ \
+	new_info_entry[0][2]+'--'+new_info_entry[0][3]+')', 'yellow', attrs=['bold']) 
+	print ''
+
 print '------------------------------------------------------------------------------------------'
 print colored('# Status of previous inquiry on '+str(last_time_date.year)+"-"+str(last_time_date.month)+"-"+str(last_time_date.day),\
 	'blue',attrs=['bold'])
 for rd_time, old_info_entry in enumerate(old_info):
-	print colored('# RD: '+old_dates[rd_time] +' Approved: '+ old_info_entry[0] + ' Received: '+ old_info_entry[1], 'white', attrs=['bold','underline'])
-
-
-
+	print ''
+	print colored('# RD: '+old_dates[rd_time]+ ' Approved: '+ old_info_entry[0], 'white',  attrs=['bold','underline'])	
+	print colored('# RD: ---------- Received: '+ old_info_entry[1],'yellow' ,attrs=['bold'])
+	
 
 

@@ -18,8 +18,8 @@ processing_center = receipt_num_start[:3]
 
 number_of_receipts = '300'
 number_of_intervals = 6
-received_key = 'Case Was Approved'
-approved_key = 'Case Was Received'
+received_key = 'Case Was Received'
+approved_key = 'Case Was Approved'
 target_form_type = 'I131'
 
 if len(sys.argv) > 1: 
@@ -75,6 +75,7 @@ for interval in range(0,number_of_intervals):
 					if info_type != received_key and info_type != approved_key:
 						continue
 					else:	
+
 						number = this_row_info[1].text
 						percent = this_row_info[2].text
 						start_date = this_row_info[3].text
@@ -82,13 +83,14 @@ for interval in range(0,number_of_intervals):
 						detailed_info[info_type] = [number, percent, start_date, end_date]
 	new_info.append(detailed_info)
 
+print colored('#################################### USCIS Tracker By Receipt Number ####################################','red',attrs=['bold'])
 for i,info in enumerate(new_info):
-	print colored('######################################################################')
+	print colored('###########################'+target_form_type+'#######################################')
 	print colored('# Receipt number: '+receipt_starts[i]+'--'+processing_center+str( int(receipt_starts[i][3:]) + int(number_of_receipts)), 'blue',attrs=['bold']) 
-	
+
 	for key in info.keys():
+
 		if key == approved_key:
 			print colored('# Approved: '+info[key][0]+' '+info[key][1]+' '+info[key][2]+' '+info[key][3], 'white', attrs=['bold','underline'])
-		elif key == received_key: 
+		if key == received_key: 
 			print colored('# Received: '+info[key][0]+' '+info[key][1]+' '+info[key][2]+' '+info[key][3], 'yellow', attrs=['bold'])
-
