@@ -153,8 +153,8 @@ print colored('# Status of previous inquiry on '+str(last_time_date.year)+"-"+st
 	'blue',attrs=['bold'])
 for rd_time, old_info_entry in enumerate(old_info):
 	print ''
-	print colored('# RD: '+old_dates[rd_time]+ ' Approved: '+ old_info_entry[0], 'white',  attrs=['bold','underline'])	
-	print colored('# RD: ---------- Received: '+ old_info_entry[1],'yellow' ,attrs=['bold'])
+	print colored('# RD: '+old_dates[rd_time]+ ' Approved: '+ old_info_entry[1], 'white',  attrs=['bold','underline'])	
+	print colored('# ---------- Received: '+ old_info_entry[0],'yellow' ,attrs=['bold'])
 	
 
 
